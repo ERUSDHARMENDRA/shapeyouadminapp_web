@@ -73,7 +73,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
               }catch(e){
                 progressDialog.dismiss();
-                _showMyDialog(
+                _services.showMyDialog(
+                  context: context,
                   title: 'Login',
                   message: '${e.toString()}',
                 );
@@ -82,12 +83,12 @@ class _LoginScreenState extends State<LoginScreen> {
             }
             //if password is incorrect
             progressDialog.dismiss();
-            _showMyDialog(title: 'Incorrect Password', message: 'Password you have entered is invalid');
+            _services.showMyDialog(context: context,title: 'Incorrect Password', message: 'Password you have entered is invalid, Try Again');
             return ;
           }
           //if username is incorrect
           progressDialog.dismiss();
-          _showMyDialog(title: 'Invalid Username', message: 'Username you have entered is incorrect');
+          _services.showMyDialog(context:context,title: 'Invalid Username', message: 'Username you have entered is incorrect, Try Again');
         }
       });
     }

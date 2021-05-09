@@ -1,23 +1,18 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:shapeyouadmin_web/services/sidebar.dart';
+import 'package:shapeyouadmin_web/widgets/banner_upload_widget.dart';
 import 'package:shapeyouadmin_web/widgets/banner_widget.dart';
-import 'package:shapeyouadmin_web/widgets/vendor_dataTable_widget.dart';
 
-class HomeScreen extends StatefulWidget {
-  static const String id = 'home-screen';
 
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
+class BannerScreen extends StatelessWidget {
+  static const String id = 'banner-screen';
 
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
 
     SideBarWidget _sideBar = SideBarWidget();
-
     return AdminScaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -25,28 +20,46 @@ class _HomeScreenState extends State<HomeScreen> {
         iconTheme: IconThemeData(
           color: Colors.white,
         ),
-        title: const Text('Shape You Dashboard',style: TextStyle(color: Colors.white),),
+        title: const Text(
+          'Shape You  Dashboard',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
-      sideBar: _sideBar.sideBarMenus(context, HomeScreen.id),
+      sideBar: _sideBar.sideBarMenus(context, BannerScreen.id),
       body: SingleChildScrollView(
         child: Container(
           alignment: Alignment.topLeft,
           padding: const EdgeInsets.all(10),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Dashboard',
+                'Banner Screen',
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 36,
                 ),
               ),
+              Text(
+                'Add/Delete Home Screen Banner Images',
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 36,
+                ),
+              ),
+              Divider(
+                thickness: 5,
+              ),
               BannerWidget(),
-              VendorDataTable(),
+              Divider(
+                thickness: 5,
+              ),
+              BannerUploadWidget(),
             ],
           ),
         ),
       ),
     );
   }
+
 }
