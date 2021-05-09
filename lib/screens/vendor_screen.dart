@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:shapeyouadmin_web/services/sidebar.dart';
-import 'package:shapeyouadmin_web/widgets/banner_widget.dart';
 import 'package:shapeyouadmin_web/widgets/vendor_dataTable_widget.dart';
-import 'package:shapeyouadmin_web/widgets/vendor_filter_widget.dart';
 
 class VendorScreen extends StatefulWidget {
   static const String id = 'vendor-screen';
@@ -54,11 +52,6 @@ class _VendorScreenState extends State<VendorScreen> {
               Divider(
                 thickness: 5,
               ),
-              BannerWidget(),
-              Divider(
-                thickness: 5,
-              ),
-              VendorFilterWidget(),
               VendorDataTable(),
               Divider(
                 thickness: 5,
