@@ -261,6 +261,7 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                                     ),
                                   ),
                                 ),
+
                                 SizedBox(
                                   height: 120,
                                   width: 120,

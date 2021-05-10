@@ -2,7 +2,7 @@ import 'package:chips_choice/chips_choice.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shapeyouadmin_web/services/firebase_services.dart';
-import 'package:shapeyouadmin_web/widgets/vendor_details_box.dart';
+import 'package:shapeyouadmin_web/widgets/vendor/vendor_details_box.dart';
 
 class VendorDataTable extends StatefulWidget {
   const VendorDataTable({Key key}) : super(key: key);

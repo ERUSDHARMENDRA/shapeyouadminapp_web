@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:shapeyouadmin_web/services/sidebar.dart';
-import 'package:shapeyouadmin_web/widgets/vendor_dataTable_widget.dart';
+import 'package:shapeyouadmin_web/widgets/vendor/vendor_dataTable_widget.dart';
 
 class VendorScreen extends StatefulWidget {
   static const String id = 'vendor-screen';

@@ -2,8 +2,8 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:shapeyouadmin_web/services/sidebar.dart';
-import 'package:shapeyouadmin_web/widgets/banner_upload_widget.dart';
-import 'package:shapeyouadmin_web/widgets/banner_widget.dart';
+import 'package:shapeyouadmin_web/widgets/banner/banner_upload_widget.dart';
+import 'package:shapeyouadmin_web/widgets/banner/banner_widget.dart';
 
 
 class BannerScreen extends StatelessWidget {
