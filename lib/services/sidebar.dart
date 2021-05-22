@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:shapeyouadmin_web/screens/admin_users.dart';
 import 'package:shapeyouadmin_web/screens/category_screen.dart';
+import 'package:shapeyouadmin_web/screens/delivery_boy_screen.dart';
 import 'package:shapeyouadmin_web/screens/home_screen.dart';
 import 'package:shapeyouadmin_web/screens/login_screen.dart';
 import 'package:shapeyouadmin_web/screens/manage_banners.dart';
@@ -11,10 +12,12 @@ import 'package:shapeyouadmin_web/screens/order_screen.dart';
 import 'package:shapeyouadmin_web/screens/setting_screen.dart';
 import 'package:shapeyouadmin_web/screens/vendor_screen.dart';
 
-class SideBarWidget {
-  sideBarMenus(context, selectedRoute){
+class SideBarWidget{
+
+
+  sideBarMenus(context,selectedRoute){
     return SideBar(
-      activeBackgroundColor: Color(0xFFB89A00),
+      activeBackgroundColor: Colors.black54,
       activeIconColor: Colors.white,
       activeTextStyle: TextStyle(color: Colors.white),
       items: const [
@@ -29,14 +32,19 @@ class SideBarWidget {
           icon: CupertinoIcons.photo,
         ),
         MenuItem(
-          title: 'Vendors',
+          title: 'Vendor',
           route: VendorScreen.id,
           icon: CupertinoIcons.group_solid,
         ),
         MenuItem(
+          title: 'Delivery Boy',
+          route: DeliveryBoyScreen.id,
+          icon: Icons.delivery_dining,
+        ),
+        MenuItem(
           title: 'Categories',
           route: CategoryScreen.id,
-          icon: Icons.category_rounded,
+          icon: Icons.category,
         ),
         MenuItem(
           title: 'Orders',
@@ -47,11 +55,12 @@ class SideBarWidget {
           title: 'Send Notification',
           route: NotificationScreen.id,
           icon: Icons.notifications,
+
         ),
         MenuItem(
           title: 'Admin Users',
           route: AdminUsers.id,
-          icon: Icons.person,
+          icon: Icons.person_rounded,
         ),
         MenuItem(
           title: 'Settings',
@@ -61,27 +70,23 @@ class SideBarWidget {
         MenuItem(
           title: 'Exit',
           route: LoginScreen.id,
-          icon: Icons.exit_to_app_rounded,
+          icon: Icons.exit_to_app,
         ),
+
       ],
       selectedRoute: selectedRoute,
       onSelected: (item) {
-        if (item.route != null) {
-          // Navigator.of(context).pushNamed(item.route);
-        }
+        Navigator.of(context).pushNamed(item.route);
       },
       header: Container(
         height: 50,
         width: double.infinity,
-        color: Color(0xff444444),
+        color: Colors.black26,
         child: Center(
           child: Text(
             'MENU',
-            style: TextStyle(
-              letterSpacing: 2,
-              fontWeight: FontWeight.bold,
-              fontSize: 25,
-              color: Colors.white,
+            style: TextStyle(letterSpacing: 2,
+                color: Colors.white,fontWeight: FontWeight.bold
             ),
           ),
         ),
@@ -89,19 +94,17 @@ class SideBarWidget {
       footer: Container(
         height: 50,
         width: double.infinity,
-        color: Color(0xff444444),
+        color: Colors.black26,
         child: Center(
-          child: Text(
-            'SHAPE YOU',
-            style: TextStyle(
-              letterSpacing: 3,
-              fontWeight: FontWeight.bold,
-              fontSize: 35,
-              color: Colors.white,
-            ),
-          ),
+          child: Image.asset('images/logo.png',height: 30,),
         ),
       ),
     );
   }
 }
+
+
+//please support, share and subscribe...
+//next video will continue with vendor app,
+//now vendor can see the delivery boys with distance in kilometer.
+//so vendor can select delivery boy to deliver the product.

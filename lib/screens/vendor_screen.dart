@@ -3,27 +3,26 @@ import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:shapeyouadmin_web/services/sidebar.dart';
 import 'package:shapeyouadmin_web/widgets/vendor/vendor_dataTable_widget.dart';
 
+
 class VendorScreen extends StatefulWidget {
   static const String id = 'vendor-screen';
-
   @override
   _VendorScreenState createState() => _VendorScreenState();
 }
 
 class _VendorScreenState extends State<VendorScreen> {
+  SideBarWidget _sideBar = SideBarWidget();
+
+
   @override
   Widget build(BuildContext context) {
-    SideBarWidget _sideBar = SideBarWidget();
-
     return AdminScaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.black87,
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        ),
+        backgroundColor: Colors.black54,
+        iconTheme: IconThemeData(color: Colors.white),
         title: const Text(
-          'Shape You  Dashboard',
+          'Grocery App Dashboard',
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -42,20 +41,11 @@ class _VendorScreenState extends State<VendorScreen> {
                   fontSize: 36,
                 ),
               ),
-              Text(
-                'Manage all the Vendor Activities',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 36,
-                ),
-              ),
-              Divider(
-                thickness: 5,
-              ),
+              Text('Manage all the Vendors Activities'),
+              Divider(thickness: 5,),
               VendorDataTable(),
-              Divider(
-                thickness: 5,
-              ),
+              Divider(thickness: 5,),
+
             ],
           ),
         ),

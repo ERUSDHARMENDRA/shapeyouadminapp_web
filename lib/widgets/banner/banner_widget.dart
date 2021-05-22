@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:shapeyouadmin_web/services/firebase_services.dart';
 
 class BannerWidget extends StatelessWidget {
-  const BannerWidget({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+
     FirebaseServices _services = FirebaseServices();
 
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     return StreamBuilder<QuerySnapshot>(
       stream: _services.banners.snapshots(),
@@ -27,50 +25,53 @@ class BannerWidget extends StatelessWidget {
         return Container(
           width: MediaQuery.of(context).size.width,
           height: 300,
-          child: new ListView(
-            scrollDirection: Axis.horizontal,
-            children: snapshot.data.docs.map((DocumentSnapshot document) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: Stack(
-                    children: [
-                      SizedBox(
-                        child: Card(
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(4),
-                              child: Image.network(
-                                document['image'],
-                                width: 500,
-                                fit: BoxFit.fill,
-                              )),
+          child: SizedBox(
+            child: new ListView(
+              scrollDirection: Axis.horizontal,
+              children: snapshot.data.docs.map((DocumentSnapshot document) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                    child: Stack(
+                      children: [
+                        SizedBox(
+                          height: 200,
+                          child: new Card(
+                            elevation: 10,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(4),
+                                child: Image.network(document.data()['image'],width: 400,fit: BoxFit.fill,)),
+                          ),
                         ),
-                      ),
-                      Positioned(
+                        Positioned(
                           top: 10,
                           right: 10,
                           child: CircleAvatar(
                             backgroundColor: Colors.white,
                             child: IconButton(
-                              onPressed:(){
+                              onPressed: (){
                                 _services.confirmDeleteDialog(
                                   context: context,
+                                  message: 'Are you sure you want to delete ? ',
                                   title: 'Delete Banner',
                                   id: document.id,
-                                  message: 'Are you sure you want to delete?',
                                 );
-                              },
-                              icon: Icon(Icons.delete, color: Colors.red,),
+                                },
+                              icon: Icon(Icons.delete,color: Colors.red,),
                             ),
-                          )),
-                    ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              );
-            }).toList(),
+                );
+              }).toList(),
+            ),
           ),
         );
       },
     );
   }
 }
+
+

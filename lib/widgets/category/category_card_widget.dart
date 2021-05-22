@@ -1,16 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase/firebase.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shapeyouadmin_web/widgets/category/subcategory_widget.dart';
+import 'package:shapeyouadmin_web/widgets/vendor/subcategory_widget.dart';
 
 class CategoryCard extends StatelessWidget {
-final DocumentSnapshot document;
-CategoryCard(this.document);
+  final DocumentSnapshot document;
+  CategoryCard(this.document);
 
   @override
   Widget build(BuildContext context) {
-    return  InkWell(
+    return InkWell(
       borderRadius: BorderRadius.circular(4),
       onTap: (){
         showDialog(
@@ -24,7 +22,6 @@ CategoryCard(this.document);
         height: 120,
         width: 120,
         child: Card(
-          color: Colors.grey[100],
           elevation: 4,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
@@ -32,12 +29,12 @@ CategoryCard(this.document);
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                SizedBox(
-                  height: 70,
-                  width: double.infinity,
-                  child: Image.network(document['image']),
-                   ),
-              FittedBox(fit: BoxFit.contain, child: Text(document['name'], style: TextStyle(fontWeight: FontWeight.bold,),),),
+                  SizedBox(
+                    height: 70,
+                    width: double.infinity,
+                    child: Image.network(document['image']),
+                  ),
+                  FittedBox(fit: BoxFit.contain,child: Text(document['name'],style: TextStyle(fontWeight: FontWeight.bold),)),
                 ],
               ),
             ),

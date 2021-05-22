@@ -64,11 +64,13 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                               children: [
                                 Text(
                                   snapshot.data['shopName'],
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 25),
                                 ),
                                 Text(snapshot.data['dialog']),
                               ],
-                            ),
+                            )
                           ],
                         ),
                         Divider(
@@ -77,39 +79,17 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                         Column(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
+                              padding: const EdgeInsets.only(top: 10),
                               child: Row(
                                 children: [
                                   Expanded(
-                                      child: Container(
-                                    child: Text(
-                                      'Contact Number',
-                                      style: kvendorDetailsTextStyle,
+                                    child: Container(
+                                      child: Text(
+                                        'Contact Number',
+                                        style: kVendorDetailsTextStyle,
+                                      ),
                                     ),
-                                  )),
-                                  Container(
-                                    child: Text(':'),
                                   ),
-                                  Expanded(
-                                      child: Container(
-                                    child: Text(
-                                      snapshot.data['mobile'],
-                                    ),
-                                  )),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                      child: Container(
-                                    child: Text(
-                                      'Email',
-                                      style: kvendorDetailsTextStyle,
-                                    ),
-                                  )),
                                   Container(
                                     child: Padding(
                                       padding: const EdgeInsets.only(
@@ -119,25 +99,51 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                                   ),
                                   Expanded(
                                       child: Container(
-                                    child: Text(
-                                      snapshot.data['email'],
-                                    ),
-                                  )),
+                                        child: Text(snapshot.data['mobile']),
+                                      )),
                                 ],
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      child: Text(
+                                        'Email',
+                                        style: kVendorDetailsTextStyle,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 10, right: 10),
+                                      child: Text(':'),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      child: Text(snapshot.data['email']),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Expanded(
-                                      child: Container(
-                                    child: Text(
-                                      'Address',
-                                      style: kvendorDetailsTextStyle,
+                                    child: Container(
+                                      child: Text(
+                                        'address',
+                                        style: kVendorDetailsTextStyle,
+                                      ),
                                     ),
-                                  )),
+                                  ),
                                   Container(
                                     child: Padding(
                                       padding: const EdgeInsets.only(
@@ -146,31 +152,31 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                                     ),
                                   ),
                                   Expanded(
-                                      child: Container(
-                                    child: Text(
-                                      snapshot.data['address'],
+                                    child: Container(
+                                      child: Text(snapshot.data['address']),
                                     ),
-                                  )),
+                                  ),
                                 ],
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
+                              padding: const EdgeInsets.only(top: 10),
                               child: Divider(
                                 thickness: 2,
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
+                              padding: const EdgeInsets.only(top: 10),
                               child: Row(
                                 children: [
                                   Expanded(
-                                      child: Container(
-                                    child: Text(
-                                      'Top Picked Status',
-                                      style: kvendorDetailsTextStyle,
+                                    child: Container(
+                                      child: Text(
+                                        'Top Pick Status',
+                                        style: kVendorDetailsTextStyle,
+                                      ),
                                     ),
-                                  )),
+                                  ),
                                   Container(
                                     child: Padding(
                                       padding: const EdgeInsets.only(
@@ -182,20 +188,21 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                                     child: Container(
                                       child: snapshot.data['isTopPicked']
                                           ? Chip(
-                                              backgroundColor: Colors.green,
-                                              label: Row(
-                                                children: [
-                                                  Icon(
-                                                    Icons.check,
-                                                    color: Colors.white,
-                                                  ),
-                                                  Text(
-                                                    'Top Picked',
-                                                    style: TextStyle(
-                                                        color: Colors.white),
-                                                  ),
-                                                ],
-                                              ))
+                                        backgroundColor: Colors.green,
+                                        label: Row(
+                                          children: [
+                                            Icon(
+                                              Icons.check,
+                                              color: Colors.white,
+                                            ),
+                                            Text(
+                                              'Top Picked',
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                          ],
+                                        ),
+                                      )
                                           : Container(),
                                     ),
                                   ),
@@ -203,7 +210,7 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
+                              padding: const EdgeInsets.only(top: 10),
                               child: Divider(
                                 thickness: 2,
                               ),
@@ -214,7 +221,7 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                                   height: 120,
                                   width: 120,
                                   child: Card(
-                                    color: Colors.orangeAccent.withOpacity(0.9),
+                                    color: Colors.orangeAccent.withOpacity(.9),
                                     elevation: 4,
                                     child: Padding(
                                       padding: const EdgeInsets.all(10.0),
@@ -240,7 +247,7 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                                   height: 120,
                                   width: 120,
                                   child: Card(
-                                    color: Colors.orangeAccent.withOpacity(0.9),
+                                    color: Colors.orangeAccent.withOpacity(.9),
                                     elevation: 4,
                                     child: Padding(
                                       padding: const EdgeInsets.all(10.0),
@@ -254,19 +261,18 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                                               color: Colors.black54,
                                             ),
                                             Text('Active Orders'),
-                                            Text('12'),
+                                            Text('6'),
                                           ],
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-
                                 SizedBox(
                                   height: 120,
                                   width: 120,
                                   child: Card(
-                                    color: Colors.orangeAccent.withOpacity(0.9),
+                                    color: Colors.orangeAccent.withOpacity(.9),
                                     elevation: 4,
                                     child: Padding(
                                       padding: const EdgeInsets.all(10.0),
@@ -275,12 +281,39 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             Icon(
-                                              Icons.grain_outlined,
+                                              Icons
+                                                  .shopping_bag,
+                                              size: 50,
+                                              color: Colors.black54,
+                                            ),
+                                            Text('Total Orders'),
+                                            Text('130'),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 120,
+                                  width: 120,
+                                  child: Card(
+                                    color: Colors.orangeAccent.withOpacity(.9),
+                                    elevation: 4,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Icon(
+                                              Icons
+                                                  .grain_outlined,
                                               size: 50,
                                               color: Colors.black54,
                                             ),
                                             Text('Products'),
-                                            Text('Total 160 Products'),
+                                            Text('160 Products'),
                                           ],
                                         ),
                                       ),
@@ -291,7 +324,7 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                                   height: 120,
                                   width: 120,
                                   child: Card(
-                                    color: Colors.orangeAccent.withOpacity(0.9),
+                                    color: Colors.orangeAccent.withOpacity(.9),
                                     elevation: 4,
                                     child: Padding(
                                       padding: const EdgeInsets.all(10.0),
@@ -300,32 +333,8 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             Icon(
-                                              Icons.list_alt_outlined,
-                                              size: 50,
-                                              color: Colors.black54,
-                                            ),
-                                            Text('Products'),
-                                            SizedBox(child: Flexible(child: Text('160 Products'))),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 120,
-                                  width: 120,
-                                  child: Card(
-                                    color: Colors.orangeAccent.withOpacity(0.9),
-                                    elevation: 4,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: Center(
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Icon(
-                                              Icons.list_alt_outlined,
+                                              Icons
+                                                  .list_alt_outlined,
                                               size: 50,
                                               color: Colors.black54,
                                             ),
@@ -337,9 +346,9 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                                   ),
                                 ),
                               ],
-                            ),
+                            )
                           ],
-                        ),
+                        )
                       ],
                     ),
                   ),
@@ -348,41 +357,41 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                     right: 10,
                     child: snapshot.data['accVerified']
                         ? Chip(
-                            backgroundColor: Colors.green,
-                            label: Row(
-                              children: [
-                                Icon(
-                                  Icons.check,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 2,
-                                ),
-                                Text(
-                                  'Active',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                          )
-                        : Chip(
-                            backgroundColor: Colors.red,
-                            label: Row(
-                              children: [
-                                Icon(
-                                  Icons.remove_circle,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 2,
-                                ),
-                                Text(
-                                  'InActive',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
+                      backgroundColor: Colors.green,
+                      label: Row(
+                        children: [
+                          Icon(
+                            Icons.check,
+                            color: Colors.white,
                           ),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            'Active',
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                    )
+                        : Chip(
+                      backgroundColor: Colors.red,
+                      label: Row(
+                        children: [
+                          Icon(
+                            Icons.remove_circle,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            'Inactive',
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
