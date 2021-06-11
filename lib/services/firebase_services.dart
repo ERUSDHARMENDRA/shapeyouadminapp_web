@@ -43,7 +43,7 @@ class FirebaseServices {
     vendors.doc(id).update({'isTopPicked': status ? false : true});
   }
 
-  //category
+
 
   Future<String> uploadCategoryImageToDb(url, catName) async {
     String downloadUrl = await storage.ref(url).getDownloadURL();
@@ -161,7 +161,7 @@ class FirebaseServices {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Ok'),
+              child: Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop();
               },

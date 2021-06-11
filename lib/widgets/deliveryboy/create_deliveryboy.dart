@@ -143,7 +143,7 @@ class _CreateNewBoyWidgetState extends State<CreateNewBoyWidget> {
                                 return null;
                               }
                             },
-                            color: Colors.black54
+                            color: Colors.black54,
                         ),
                       ],
                     ),

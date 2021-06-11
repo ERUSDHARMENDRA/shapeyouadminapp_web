@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:shapeyouadmin_web/screens/category_screen.dart';
 import 'package:shapeyouadmin_web/screens/delivery_boy_screen.dart';
@@ -13,6 +14,7 @@ import 'screens/setting_screen.dart';
 
 
 void main() {
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
   runApp(MyApp());
 }
 

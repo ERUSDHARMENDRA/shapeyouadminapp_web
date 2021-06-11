@@ -13,8 +13,13 @@ class CategoryListWidget extends StatelessWidget {
       child: StreamBuilder(
         stream: _services.category.snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
-          if(snapshot.hasError){
-            return Center (child: Text('Something went wrong..'),);
+          try{
+            if(snapshot.hasError){
+              return Text('Something went wrong..');
+            }
+          }catch(e,s){
+            print('Error is: $e');
+            print('Stack Trace is: $s');
           }
           if(snapshot.connectionState==ConnectionState.waiting){
             return Center(child: CircularProgressIndicator(),);

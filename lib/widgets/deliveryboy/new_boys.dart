@@ -16,14 +16,13 @@ class _NewBoysState extends State<NewBoys> {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
-      child: StreamBuilder(
-        stream: _services.boys.where('accVerified',isEqualTo: false).snapshots(),
-        builder: (context,snapshot){
-          if(snapshot.hasError){
-            return Text('Something went wrong..');
-          }
+      child: StreamBuilder<QuerySnapshot>(
+        stream: _services.boys.where('accVerified',isEqualTo: true).snapshots(),
+        builder: (BuildContext context,AsyncSnapshot<QuerySnapshot>snapshot){
+            if(!snapshot.hasError){
+              print('$snapshot.error');
+            }
           if(snapshot.connectionState==ConnectionState.waiting){
             return Center(child: CircularProgressIndicator(),);
           }
@@ -105,8 +104,4 @@ class _NewBoysState extends State<NewBoys> {
   }
 }
 
-//now we have already some delivery boys registered/
-//now vendor can select nearest delivery boy to deliver the oreder.
-
-//so open vendor app
 

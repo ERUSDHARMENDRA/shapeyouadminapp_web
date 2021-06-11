@@ -104,7 +104,3 @@ class SideBarWidget{
 }
 
 
-//please support, share and subscribe...
-//next video will continue with vendor app,
-//now vendor can see the delivery boys with distance in kilometer.
-//so vendor can select delivery boy to deliver the product.

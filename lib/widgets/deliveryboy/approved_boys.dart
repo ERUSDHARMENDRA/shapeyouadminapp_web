@@ -23,9 +23,14 @@ class _ApprovedBoysState extends State<ApprovedBoys> {
       child: StreamBuilder(
         stream: _services.boys.where('accVerified',isEqualTo: true).snapshots(),
         builder: (context,snapshot){
-          if(snapshot.hasError){
-            return Text('Something went wrong..');
-          }
+         try{
+           if(snapshot.hasError){
+             return Text('Something went wrong..');
+           }
+         }catch(e,s){
+           print('Error is: $e');
+           print('Stack Trace is: $s');
+         }
           if(snapshot.connectionState==ConnectionState.waiting){
             return Center(child: CircularProgressIndicator(),);
           }

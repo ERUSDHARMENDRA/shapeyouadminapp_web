@@ -144,7 +144,6 @@ class _CategoryCreateWidgetState extends State<CategoryCreateWidget> {
         ),
       ),
     );
-
   }
 
   void uploadImage({@required Function(File file) onSelected}) {
