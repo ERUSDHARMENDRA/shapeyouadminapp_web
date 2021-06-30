@@ -40,7 +40,7 @@ class BannerWidget extends StatelessWidget {
                             elevation: 10,
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(4),
-                                child: Image.network(document.data()['image'],width: 400,fit: BoxFit.fill,)),
+                                child: Image.network(document['image'],width: 400,fit: BoxFit.fill,)),
                           ),
                         ),
                         Positioned(

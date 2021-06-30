@@ -142,10 +142,10 @@ class _VendorDataTableState extends State<VendorDataTable> {
           IconButton(
             onPressed: () {
               services.updateVendorStatus(
-                  id: document.data()['uid'],
-                  status: document.data()['accVerified']);
+                  id: document['uid'],
+                  status: document['accVerified']);
             },
-            icon: document.data()['accVerified']
+            icon: document['accVerified']
                 ? Icon(
               Icons.check_circle,
               color: Colors.green,
@@ -160,10 +160,10 @@ class _VendorDataTableState extends State<VendorDataTable> {
           IconButton(
             onPressed: () {
               services.updateTopPickedVendor(
-                  id: document.data()['uid'],
-                  status: document.data()['isTopPicked']);
+                  id: document['uid'],
+                  status: document['isTopPicked']);
             },
-            icon: document.data()['isTopPicked']
+            icon: document['isTopPicked']
                 ? Icon(
               Icons.check_circle,
               color: Colors.green,
@@ -174,7 +174,7 @@ class _VendorDataTableState extends State<VendorDataTable> {
           ),
         ),
         DataCell(
-          Text(document.data()['shopName']),
+          Text(document['shopName']),
         ),
         DataCell(
           Row(
@@ -188,8 +188,8 @@ class _VendorDataTableState extends State<VendorDataTable> {
           ),
         ),
         DataCell(Text('20,000')),
-        DataCell(Text(document.data()['mobile'])),
-        DataCell(Text(document.data()['email'])),
+        DataCell(Text(document['mobile'])),
+        DataCell(Text(document['email'])),
         DataCell(IconButton(
           icon: Icon(Icons.info_outline),
           onPressed: () {
@@ -197,7 +197,7 @@ class _VendorDataTableState extends State<VendorDataTable> {
             showDialog(
                 context: context,
                 builder: (BuildContext context){
-                  return VendorDetailsBox(document.data()['uid']);
+                  return VendorDetailsBox(document['uid']);
                 }
             );
           },

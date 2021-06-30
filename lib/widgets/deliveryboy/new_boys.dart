@@ -56,7 +56,6 @@ class _NewBoysState extends State<NewBoys> {
   List<DataRow>_boysList(QuerySnapshot snapshot,context){
 
     List<DataRow> newList = snapshot.docs.map((DocumentSnapshot document){
-      print(document.data().length);
       if(document!=null){
         return DataRow(
             cells: [
@@ -65,28 +64,28 @@ class _NewBoysState extends State<NewBoys> {
                     width: 60,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: document.data()['imageUrl'] == '' ? Icon(Icons.person,size: 40,) : Image.network(document.data()['imageUrl'],fit: BoxFit.contain,),
+                      child: document['imageUrl'] == '' ? Icon(Icons.person,size: 40,) : Image.network(document['imageUrl'],fit: BoxFit.contain,),
                     ),)
               ),
               DataCell(
-                  Text(document.data()['name'])
+                  Text(document['name'])
               ),
               DataCell(
-                  Text(document.data()['email'])
+                  Text(document['email'])
               ),
               DataCell(
-                  Text(document.data()['mobile'])
+                  Text(document['mobile'])
               ),
               DataCell(
-                  Text(document.data()['address'])
+                  Text(document['address'])
               ),
 
               DataCell(
-                document.data()['mobile']==''? Text('Not Registered'):
+                document['mobile']==''? Text('Not Registered'):
                 FlutterSwitch(
                   activeText: "Approved",
                   inactiveText: "Not Approved",
-                  value: document.data()['accVerified'],
+                  value: document['accVerified'],
                   valueFontSize: 10.0,
                   width: 110,
                   borderRadius: 30.0,

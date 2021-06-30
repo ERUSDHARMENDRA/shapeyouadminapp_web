@@ -41,15 +41,11 @@ class MyApp extends StatelessWidget {
         SettingScreen.id:(context)=>SettingScreen(),
         VendorScreen.id:(context)=>VendorScreen(),
         DeliveryBoyScreen.id:(context)=>DeliveryBoyScreen(),
-
       },
     );
   }
 }
 
-
-
-//close and restart
 
 
 

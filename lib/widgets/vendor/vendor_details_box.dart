@@ -51,7 +51,7 @@ class _VendorDetailsBoxState extends State<VendorDetailsBox> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(4),
                                 child: Image.network(
-                                  snapshot.data['imageUrl'],
+                                  snapshot.data['ImageUrl'],
                                   fit: BoxFit.cover,
                                 ),
                               ),

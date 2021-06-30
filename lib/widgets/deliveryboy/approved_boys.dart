@@ -65,7 +65,7 @@ class _ApprovedBoysState extends State<ApprovedBoys> {
   List<DataRow>_boysList(QuerySnapshot snapshot,context){
 
     List<DataRow> newList = snapshot.docs.map((DocumentSnapshot document){
-      print(document.data().length);
+     
       if(document!=null){
         return DataRow(
             cells: [
@@ -74,26 +74,26 @@ class _ApprovedBoysState extends State<ApprovedBoys> {
                     width: 60,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Image.network(document.data()['imageUrl'],fit: BoxFit.contain,),
+                      child: Image.network(document['imageUrl'],fit: BoxFit.contain,),
                     ),)
               ),
               DataCell(
-                  Text(document.data()['name'])
+                  Text(document['name'])
               ),
               DataCell(
-                  Text(document.data()['email'])
+                  Text(document['email'])
               ),
               DataCell(
-                  Text(document.data()['mobile'])
+                  Text(document['mobile'])
               ),
               DataCell(
-                  Text(document.data()['address'])
+                  Text(document['address'])
               ),
               DataCell(
                 FlutterSwitch(
                   activeText: "Approved",
                   inactiveText: "Not Approved",
-                  value: document.data()['accVerified'],
+                  value: document['accVerified'],
                   valueFontSize: 10.0,
                   width: 110,
                   borderRadius: 30.0,
